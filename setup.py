@@ -62,6 +62,8 @@ setup(
             "nameko-sqlalchemy==0.0.1",
             "PyJWT==2.6.0",
             "moto==4.1.2",
+            "boto3==1.34.89",
+            "botocore==1.34.89",  # https://github.com/boto/botocore/issues/3169
             "bcrypt==3.1.3",
             "regex==2018.2.21",
         ],
