@@ -1,8 +1,8 @@
 import socket
+from unittest.mock import patch
 
 import pytest
 from eventlet import wsgi
-from mock import patch
 
 from nameko.exceptions import ConfigurationError
 from nameko.web.handlers import HttpRequestHandler, http

@@ -1,9 +1,9 @@
 import itertools
 import time
+from unittest.mock import Mock
 
 import pytest
 from kombu.messaging import Queue
-from mock import Mock
 
 from nameko import config
 from nameko.amqp.publish import Publisher

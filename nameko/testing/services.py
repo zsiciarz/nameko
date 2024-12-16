@@ -5,10 +5,10 @@ Utilities for testing nameko services.
 import inspect
 from collections import OrderedDict
 from contextlib import contextmanager
+from unittest.mock import MagicMock
 
 import eventlet
 from eventlet import event
-from mock import MagicMock
 
 from nameko.exceptions import ExtensionNotFound
 from nameko.extensions import DependencyProvider, Entrypoint

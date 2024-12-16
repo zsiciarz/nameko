@@ -1,8 +1,8 @@
 import json
 import sys
+from unittest.mock import ANY
 
 import pytest
-from mock import ANY
 
 from nameko.exceptions import RemoteError
 from nameko.extensions import DependencyProvider

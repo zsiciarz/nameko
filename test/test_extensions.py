@@ -1,7 +1,8 @@
 # coding: utf-8
 
+from unittest.mock import Mock
+
 import pytest
-from mock import Mock
 
 from nameko.extensions import (
     DependencyProvider, Entrypoint, Extension, is_dependency, is_entrypoint,

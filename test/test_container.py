@@ -2,13 +2,13 @@
 
 import sys
 from functools import partial
+from unittest.mock import ANY, Mock, call, patch
 
 import eventlet
 import greenlet
 import pytest
 from eventlet import Timeout, sleep, spawn
 from eventlet.event import Event
-from mock import ANY, Mock, call, patch
 
 from nameko import config
 from nameko.constants import MAX_WORKERS_CONFIG_KEY

@@ -4,10 +4,10 @@ import signal
 import socket
 from os.path import abspath, dirname, join
 from textwrap import dedent
+from unittest.mock import call, patch
 
 import eventlet
 import pytest
-from mock import call, patch
 
 from nameko import config
 from nameko.cli.run import run, setup_backdoor

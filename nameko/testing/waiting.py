@@ -1,9 +1,9 @@
 import sys
 from contextlib import contextmanager
 from threading import Semaphore
+from unittest.mock import patch
 
 import six
-from mock import patch
 
 
 class WaitResult(object):

@@ -1,9 +1,9 @@
 import logging
 import time
+from unittest.mock import Mock
 
 import eventlet
 import pytest
-from mock import Mock
 
 from nameko.testing.services import entrypoint_hook, get_extension
 from nameko.testing.utils import wait_for_call

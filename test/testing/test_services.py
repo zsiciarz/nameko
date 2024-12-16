@@ -1,9 +1,9 @@
 import itertools
 import time
+from unittest.mock import Mock, call
 
 import eventlet
 import pytest
-from mock import Mock, call
 
 from nameko.events import event_handler
 from nameko.exceptions import ExtensionNotFound, MethodNotFound

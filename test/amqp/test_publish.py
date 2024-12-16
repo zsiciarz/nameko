@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
 from time import time
+from unittest.mock import ANY, MagicMock, Mock, call, patch
 
 import kombu
 import pytest
@@ -13,7 +14,6 @@ from kombu.compression import get_encoder
 from kombu.exceptions import OperationalError
 from kombu.messaging import Exchange, Producer, Queue
 from kombu.serialization import registry
-from mock import ANY, MagicMock, Mock, call, patch
 from packaging import version
 from six.moves import queue
 from six.moves.urllib.parse import urlparse

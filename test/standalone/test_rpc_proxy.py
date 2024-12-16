@@ -1,5 +1,6 @@
 import ssl
 from contextlib import contextmanager
+from unittest.mock import Mock, patch
 
 import eventlet
 import pytest
@@ -7,7 +8,6 @@ from eventlet.event import Event
 from kombu.connection import Connection
 from kombu.exceptions import OperationalError
 from kombu.message import Message
-from mock import Mock, patch
 from six.moves import queue
 
 import nameko

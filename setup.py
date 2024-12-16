@@ -28,7 +28,6 @@ setup(
         "eventlet>=0.33.0 ; python_version>='3.10'",
         "kombu>=4.2.0",
         "kombu>=5.2.0 ; python_version>='3.10'",
-        "mock>=1.2",
         "path.py>=6.2",
         "pyyaml>=5.1",
         "requests>=1.2.0",

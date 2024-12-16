@@ -7,7 +7,7 @@ import os
 import boto3
 import jwt
 import pytest
-from mock import Mock, call, patch
+from unittest.mock import Mock, call, patch
 from moto import mock_sqs
 
 from nameko import config

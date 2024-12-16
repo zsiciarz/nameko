@@ -1,9 +1,9 @@
 import itertools
+from unittest.mock import Mock, call, patch
 
 import eventlet
 import pytest
 from eventlet.event import Event
-from mock import Mock, call, patch
 from requests import HTTPError, Response
 
 from nameko.containers import ServiceContainer

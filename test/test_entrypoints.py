@@ -1,7 +1,7 @@
 from collections import defaultdict
+from unittest.mock import Mock, call
 
 import pytest
-from mock import Mock, call
 
 from nameko.extensions import DependencyProvider, Entrypoint
 from nameko.testing.services import dummy, entrypoint_hook, once

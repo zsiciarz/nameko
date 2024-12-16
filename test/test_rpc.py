@@ -1,6 +1,7 @@
 import ssl
 import uuid
 from contextlib import contextmanager
+from unittest.mock import Mock, call, patch
 
 import eventlet
 import pytest
@@ -10,7 +11,6 @@ from greenlet import GreenletExit  # pylint: disable=E0611
 from kombu import Exchange
 from kombu.connection import Connection
 from kombu.exceptions import OperationalError
-from mock import Mock, call, patch
 from six.moves import queue
 
 import nameko

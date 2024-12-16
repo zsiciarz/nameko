@@ -3,12 +3,12 @@ from __future__ import absolute_import
 import itertools
 import ssl
 from collections import Counter
+from unittest.mock import ANY, Mock, patch
 
 import eventlet
 import pytest
 from amqp.exceptions import NotFound
 from eventlet.event import Event
-from mock import ANY, Mock, patch
 from six.moves import queue
 
 import nameko

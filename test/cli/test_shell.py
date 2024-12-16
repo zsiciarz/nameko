@@ -1,9 +1,9 @@
 import os
 import subprocess
 import sys
+from unittest.mock import Mock, patch
 
 import pytest
-from mock import Mock, patch
 
 from nameko.cli.shell import make_nameko_helper
 from nameko.constants import (

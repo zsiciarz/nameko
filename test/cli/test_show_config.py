@@ -1,7 +1,7 @@
 from textwrap import dedent
+from unittest.mock import patch
 
 import pytest
-from mock import patch
 
 
 @patch("nameko.cli.utils.config.os")

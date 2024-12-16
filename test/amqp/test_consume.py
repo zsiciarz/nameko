@@ -1,7 +1,8 @@
+from unittest.mock import Mock, patch
+
 import eventlet
 import pytest
 from kombu.messaging import Queue
-from mock import Mock, patch
 
 from nameko.amqp.consume import Consumer
 from nameko.amqp.publish import Publisher

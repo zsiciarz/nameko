@@ -1,10 +1,10 @@
 # coding: utf-8
 
 import json
+from unittest.mock import patch
 
 import pytest
 import six
-from mock import patch
 
 from nameko.exceptions import (
     RemoteError, UnserializableValueError, deserialize,

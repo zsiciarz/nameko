@@ -1,5 +1,6 @@
+from unittest.mock import call, patch
+
 import pytest
-from mock import call, patch
 
 from nameko import config
 from nameko.dependency_providers import Config

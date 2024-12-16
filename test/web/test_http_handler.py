@@ -1,7 +1,7 @@
 import json
+from unittest.mock import patch
 
 import pytest
-from mock import patch
 from werkzeug.wrappers import Response
 
 from nameko.testing.utils import get_extension

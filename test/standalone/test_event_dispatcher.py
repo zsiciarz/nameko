@@ -1,8 +1,8 @@
 import ssl
+from unittest.mock import Mock, patch
 
 import pytest
 from amqp.exceptions import NotFound
-from mock import Mock, patch
 from six.moves import queue
 
 import nameko

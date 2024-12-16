@@ -1,9 +1,9 @@
 import os
 import sys
+from unittest.mock import call, patch
 
 import pytest
 import yaml
-from mock import call, patch
 
 from nameko.cli import cli
 from nameko.cli.utils.config import ENV_VAR_MATCHER, setup_yaml_parser

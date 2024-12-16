@@ -1,5 +1,6 @@
+from unittest.mock import ANY, Mock
+
 import pytest
-from mock import ANY, Mock
 
 from nameko.rpc import Responder
 

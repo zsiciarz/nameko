@@ -1,9 +1,9 @@
 import sys
 import time
 from threading import Thread
+from unittest.mock import ANY, Mock, call, patch
 
 import pytest
-from mock import ANY, Mock, call, patch
 
 from nameko.testing.waiting import WaitResult, wait_for_call
 

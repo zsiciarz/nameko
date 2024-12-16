@@ -124,7 +124,7 @@ def empty_config():
 
 @pytest.fixture
 def mock_container(request):
-    from mock import create_autospec
+    from unittest.mock import create_autospec
 
     from nameko.constants import DEFAULT_SERIALIZER, SERIALIZER_CONFIG_KEY
     from nameko.containers import ServiceContainer
@@ -374,8 +374,7 @@ def runner_factory():
 @pytest.fixture
 def predictable_call_ids(request):
     import itertools
-
-    from mock import patch
+    from unittest.mock import patch
 
     with patch('nameko.standalone.rpc.uuid') as client_uuid:
         client_uuid.uuid4.side_effect = (str(i) for i in itertools.count())

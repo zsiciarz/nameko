@@ -4,12 +4,12 @@ import sys
 import uuid
 from contextlib import contextmanager
 from types import ModuleType
+from unittest.mock import ANY, patch
 
 import eventlet
 import pytest
 import requests
 from kombu.messaging import Queue
-from mock import ANY, patch
 from six.moves import queue
 from six.moves.urllib.parse import urlparse
 

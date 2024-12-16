@@ -1,10 +1,10 @@
 import json
 import uuid
+from unittest.mock import Mock, call
 
 import pytest
 import yaml
 from kombu import Exchange, Queue
-from mock import Mock, call
 
 from nameko import config
 from nameko.constants import (
