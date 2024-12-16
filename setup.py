@@ -50,12 +50,11 @@ setup(
             "urllib3==1.26.4",
             "websocket-client==0.48.0",
         ],
-        'docs': [
-            "pyenchant==1.6.11",
-            "Sphinx==1.8.5",
-            "sphinxcontrib-spelling==4.2.1",
+        "docs": [
+            "pyenchant==3.2.2",
+            "Sphinx>=5.0",
+            "sphinxcontrib-spelling>=7.0",
             "sphinx-nameko-theme==0.0.3",
-            "docutils<0.18",  # https://github.com/sphinx-doc/sphinx/issues/9788
             "jinja2<3.1.0",  # https://github.com/readthedocs/readthedocs.org/issues/9037
         ],
         "examples": [
