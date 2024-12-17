@@ -1,7 +1,6 @@
 from functools import partial
 from logging import getLogger
 
-import six
 from eventlet.event import Event
 from werkzeug.routing import Rule
 from werkzeug.wrappers import Response
@@ -74,7 +73,7 @@ class HttpRequestHandler(Entrypoint):
             payload = result
             status = 200
 
-        if not isinstance(payload, six.string_types):
+        if not isinstance(payload, str):
             raise TypeError(
                 "Payload must be a string. Got `{!r}`".format(payload)
             )

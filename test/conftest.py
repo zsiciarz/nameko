@@ -1,17 +1,17 @@
 import json
+import queue
 import subprocess
 import sys
 import uuid
 from contextlib import contextmanager
 from types import ModuleType
 from unittest.mock import ANY, patch
+from urllib.parse import urlparse
 
 import eventlet
 import pytest
 import requests
 from kombu.messaging import Queue
-from six.moves import queue
-from six.moves.urllib.parse import urlparse
 
 from nameko import config
 from nameko.amqp.publish import get_connection
@@ -218,7 +218,7 @@ def queue_info(amqp_uri):
 @pytest.fixture
 def get_vhost():
     def parse(uri):
-        from six.moves.urllib.parse import urlparse  # pylint: disable=E0401
+        from urllib.parse import urlparse
         uri_parts = urlparse(uri)
         return uri_parts.path[1:]
     return parse

@@ -2,9 +2,7 @@ import inspect
 import re
 from copy import deepcopy
 from pydoc import locate
-
-import six
-from six.moves.urllib.parse import urlparse
+from urllib.parse import urlparse
 
 
 REDACTED = "********"
@@ -72,7 +70,7 @@ def get_redacted_args(entrypoint, *args, **kwargs):
 
     """
     sensitive_arguments = entrypoint.sensitive_arguments
-    if isinstance(sensitive_arguments, six.string_types):
+    if isinstance(sensitive_arguments, str):
         sensitive_arguments = (sensitive_arguments,)
 
     method = getattr(entrypoint.container.service_cls, entrypoint.method_name)

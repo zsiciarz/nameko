@@ -31,7 +31,6 @@ setup(
         "path.py>=6.2",
         "pyyaml>=5.1",
         "requests>=1.2.0",
-        "six>=1.9.0",
         "werkzeug>=1.0.0,<3.0",
         "wrapt>=1.0.0",
         "packaging",

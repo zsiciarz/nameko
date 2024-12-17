@@ -1,7 +1,6 @@
 """Custom click parameter types used in nameko.
 """
 import click
-import six
 import yaml
 
 
@@ -12,7 +11,7 @@ class KeyValParamType(click.ParamType):
     name = "key_val"
 
     def convert(self, value, param, ctx):
-        if not isinstance(value, six.string_types):
+        if not isinstance(value, str):
             self.fail("Value must by a string")
         if "=" in value:
             key, val = value.split("=", 1)

@@ -3,8 +3,6 @@ from __future__ import unicode_literals
 import inspect
 import sys
 
-import six
-
 
 if sys.version_info >= (3, 3):  # pragma: no cover
     from collections.abc import Iterable  # pylint: disable=E0611,E0401
@@ -72,18 +70,18 @@ def safe_for_serialization(value):
     and all other values are stringified, with a fallback value if that fails
     """
 
-    if isinstance(value, six.string_types):
+    if isinstance(value, str):
         return value
     if isinstance(value, dict):
         return {
             safe_for_serialization(key): safe_for_serialization(val)
-            for key, val in six.iteritems(value)
+            for key, val in value.items()
         }
     if isinstance(value, Iterable):
         return list(map(safe_for_serialization, value))
 
     try:
-        return six.text_type(value)
+        return str(value)
     except Exception:
         return '[__unicode__ failed]'
 

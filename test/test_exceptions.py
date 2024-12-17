@@ -4,7 +4,6 @@ import json
 from unittest.mock import patch
 
 import pytest
-import six
 
 from nameko.exceptions import (
     RemoteError, UnserializableValueError, deserialize,
@@ -70,7 +69,7 @@ def test_deserialize_to_remote_error():
     assert type(deserialized) == RemoteError
     assert deserialized.exc_type == "CustomError"
     assert deserialized.value == u"something went ಠ_ಠ"
-    assert six.text_type(deserialized) == u"CustomError something went ಠ_ಠ"
+    assert str(deserialized) == u"CustomError something went ಠ_ಠ"
 
 
 @pytest.mark.usefixtures('registry')
@@ -180,5 +179,5 @@ def test_safe_for_serialization_bad_str():
 
     obj = BadStr()
     safe = safe_for_serialization(obj)
-    assert isinstance(safe, six.string_types)
+    assert isinstance(safe, str)
     assert 'failed' in safe

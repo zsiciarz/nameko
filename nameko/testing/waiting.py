@@ -3,8 +3,6 @@ from contextlib import contextmanager
 from threading import Semaphore
 from unittest.mock import patch
 
-import six
-
 
 class WaitResult(object):
     sentinel = object()
@@ -32,7 +30,8 @@ class WaitResult(object):
             raise WaitResult.NotReady()
 
         if self.exc_info is not None:
-            six.reraise(*self.exc_info)
+            _, value, tb = self.exc_info
+            raise value.with_traceback(tb)
         return self.res
 
 
@@ -64,7 +63,8 @@ def wait_for_call(obj, target, callback=None):
         maybe_release(args, kwargs, res, exc_info)
 
         if exc_info is not None:
-            six.reraise(*exc_info)
+            _, value, tb = exc_info
+            raise value.with_traceback(tb)
         return res
 
     with patch.object(obj, target, new=wraps):

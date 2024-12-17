@@ -1,9 +1,9 @@
+import queue
 import socket
 import time
 from functools import partial
 
 import pytest
-from six.moves import queue
 
 from nameko import config
 from nameko.constants import WEB_SERVER_CONFIG_KEY

@@ -1,10 +1,9 @@
 import json
+from urllib.parse import quote
 
-import six
 from requests import ConnectionError, HTTPError, Session
 from requests.auth import HTTPBasicAuth
 from requests.utils import get_auth_from_url, urldefragauth
-from six.moves.urllib.parse import quote  # pylint: disable=E0401
 
 
 __all__ = ['Client', 'HTTPError']
@@ -46,10 +45,10 @@ class Client(object):
         try:
             result = self._session.request(method, url, **kwargs)
         except ConnectionError as exc:
-            six.raise_from(Exception(
+            raise Exception(
                 'Connection error for the RabbitMQ management HTTP'
                 ' API at {}, is it enabled?'.format(url)
-            ), exc)
+            ) from exc
 
         result.raise_for_status()
         if result.content:

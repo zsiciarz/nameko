@@ -1,7 +1,9 @@
 from __future__ import absolute_import
 
+import queue
 from time import time
 from unittest.mock import ANY, MagicMock, Mock, call, patch
+from urllib.parse import urlparse
 
 import kombu
 import pytest
@@ -15,8 +17,6 @@ from kombu.exceptions import OperationalError
 from kombu.messaging import Exchange, Producer, Queue
 from kombu.serialization import registry
 from packaging import version
-from six.moves import queue
-from six.moves.urllib.parse import urlparse
 
 from nameko import config
 from nameko.amqp.publish import (

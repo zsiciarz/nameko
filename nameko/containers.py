@@ -8,7 +8,6 @@ from collections import deque
 from logging import getLogger
 
 import eventlet
-import six
 from eventlet.event import Event
 from eventlet.greenpool import GreenPool
 from greenlet import GreenletExit  # pylint: disable=E0611
@@ -31,11 +30,6 @@ from nameko.utils.concurrency import SpawningSet
 _log = getLogger(__name__)
 _log_time = make_timing_logger(_log)
 
-if six.PY2:  # pragma: no cover
-    is_method = inspect.ismethod
-else:  # pragma: no cover
-    is_method = inspect.isfunction
-
 
 def get_service_name(service_cls):
     service_name = getattr(service_cls, 'name', None)
@@ -43,7 +37,7 @@ def get_service_name(service_cls):
         raise ConfigurationError(
             'Service class must define a `name` attribute ({}.{})'.format(
                 service_cls.__module__, service_cls.__name__))
-    if not isinstance(service_name, six.string_types):
+    if not isinstance(service_name, str):
         raise ConfigurationError(
             'Service name attribute must be a string ({}.{}.name)'.format(
                 service_cls.__module__, service_cls.__name__))
@@ -143,7 +137,7 @@ class ServiceContainer(object):
             self.dependencies.add(bound)
             self.subextensions.update(iter_extensions(bound))
 
-        for method_name, method in inspect.getmembers(service_cls, is_method):
+        for method_name, method in inspect.getmembers(service_cls, inspect.isfunction):
             entrypoints = getattr(method, ENTRYPOINT_EXTENSIONS_ATTR, [])
             for entrypoint in entrypoints:
                 bound = entrypoint.bind(self.interface, method_name)

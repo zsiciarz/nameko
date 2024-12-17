@@ -4,7 +4,6 @@ from collections import namedtuple
 from functools import partial
 from logging import getLogger
 
-import six
 import werkzeug
 from eventlet.event import Event
 from eventlet.websocket import WebSocketWSGI
@@ -62,7 +61,7 @@ class WebSocketServer(SharedExtension, ProviderCollector):
             raise MalformedRequest('Invalid JSON data')
 
     def serialize_for_ws(self, payload):
-        return six.text_type(json.dumps(payload))
+        return json.dumps(payload)
 
     def serialize_event(self, event, data):
         return self.serialize_for_ws({

@@ -147,16 +147,12 @@ def rabbit_manager(request):
 
 @pytest.fixture(scope='session')
 def vhost_pipeline(request, rabbit_manager):
-    try:
-        from collections.abc import Iterable
-    except ImportError:  # pragma: no cover
-        # py2 compatibility
-        from collections import Iterable  # pylint: disable=E0611
     import random
     import string
+    from collections.abc import Iterable
+    from urllib.parse import urlparse
 
     from kombu.pools import connections
-    from six.moves.urllib.parse import urlparse  # pylint: disable=E0401
 
     from nameko.testing.utils import ResourcePipeline
     from nameko.utils.retry import retry
@@ -195,7 +191,7 @@ def vhost_pipeline(request, rabbit_manager):
 
 @pytest.fixture
 def rabbit_uri(request, vhost_pipeline):
-    from six.moves.urllib.parse import urlparse  # pylint: disable=E0401
+    from urllib.parse import urlparse
 
     rabbit_amqp_uri = request.config.getoption('RABBIT_AMQP_URI')
     uri_parts = urlparse(rabbit_amqp_uri)
@@ -239,7 +235,7 @@ def rabbit_ssl_options(request):
 
 @pytest.fixture
 def rabbit_ssl_uri(request, rabbit_uri):
-    from six.moves.urllib.parse import urlparse  # pylint: disable=E0401
+    from urllib.parse import urlparse
 
     amqp_ssl_port = request.config.getoption('AMQP_SSL_PORT')
     uri_parts = urlparse(rabbit_uri)

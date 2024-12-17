@@ -17,8 +17,6 @@ import os
 import re
 import sys
 
-import six
-
 from nameko.extensions import ENTRYPOINT_EXTENSIONS_ATTR
 
 
@@ -26,7 +24,7 @@ MISSING_MODULE_TEMPLATE = "^No module named '?{}'?$"
 
 
 def is_class(obj):
-    return isinstance(obj, six.class_types)
+    return isinstance(obj, type)
 
 
 def is_entrypoint(method):

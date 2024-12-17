@@ -1,3 +1,4 @@
+import queue
 import ssl
 from contextlib import contextmanager
 from unittest.mock import Mock, patch
@@ -8,7 +9,6 @@ from eventlet.event import Event
 from kombu.connection import Connection
 from kombu.exceptions import OperationalError
 from kombu.message import Message
-from six.moves import queue
 
 import nameko
 from nameko import config

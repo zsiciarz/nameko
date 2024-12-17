@@ -1,3 +1,4 @@
+import queue
 import ssl
 import uuid
 from contextlib import contextmanager
@@ -11,7 +12,6 @@ from greenlet import GreenletExit  # pylint: disable=E0611
 from kombu import Exchange
 from kombu.connection import Connection
 from kombu.exceptions import OperationalError
-from six.moves import queue
 
 import nameko
 from nameko import config

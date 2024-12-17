@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+import queue
 import ssl
 from contextlib import contextmanager
 from unittest.mock import Mock, call, patch
@@ -11,7 +12,6 @@ from eventlet.semaphore import Semaphore
 from kombu import Exchange, Queue
 from kombu.connection import Connection
 from kombu.exceptions import OperationalError
-from six.moves import queue
 
 import nameko
 from nameko import config

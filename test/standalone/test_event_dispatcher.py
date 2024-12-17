@@ -1,9 +1,9 @@
+import queue
 import ssl
 from unittest.mock import Mock, patch
 
 import pytest
 from amqp.exceptions import NotFound
-from six.moves import queue
 
 import nameko
 from nameko.amqp import UndeliverableMessage
